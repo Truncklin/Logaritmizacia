@@ -7,24 +7,25 @@ namespace ConsoleApp8
         class Program
         {
             static void Main(string[] args)
-            {
-                /* double max = 0;
-                 Stack<double> st = new Stack<double>();
-                 st.Push(-5.2);
-                 st.Push(72.3);
-                 st.Push(2.3);
-                 st.Push(18.4);
-                 st.Push(-16.3);
-                 foreach(double x in st)
-                     if (x > max)
-                     {
-                         max = x;
-                     }
-                 Console.WriteLine("Максимальное число {0}",max);
-                 foreach (double x in st)
-                 {
-                     Console.WriteLine(x);
-                 }*/
+            {/* double max = 0;
+                Stack<double> st = new Stack<double>();
+                st.Push(-5.2);
+                st.Push(72.3);
+                st.Push(2.3);
+                st.Push(18.4);
+                st.Push(-16.3);
+                foreach(double x in st)
+                    if (x > max)
+                    {
+                        max = x;
+                    }
+                Console.WriteLine("Максимальное число {0}",max);
+                foreach (double x in st)
+                {
+                    Console.WriteLine(x);
+                }*/
+                string min = "";
+                string str = "";
                 Stack<string> st = new Stack<string>();
                 st.Push("group");
                 st.Push("220");
@@ -35,6 +36,17 @@ namespace ConsoleApp8
                 {
                     Console.WriteLine(x);
                 }
+                Console.WriteLine();
+                st.Pop();
+                min = st.Pop();
+                
+                foreach (string x in st)
+                {
+                    if (min.Length > x.Length) min = x;
+                    Console.WriteLine(x);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Строка с минимальным кол-вом символов: " +min);
             }
         }
     }
