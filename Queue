@@ -1,1 +1,80 @@
+Console.WriteLine("Введите номер задания");
+            int egor = Convert.ToInt32(Console.ReadLine());
+            switch (egor)
+            {
+                case 1:
+                    //1.Создать очередь из целых чисел. Определить количество элементов очереди меньших 10.Организовать просмотр данных очереди.
+                    Queue<int> q = new Queue<int>();
+                    Random rnd = new Random();
+                    int r =0;
+                    for (int i = 0; i < 50; i++)
+                        q.Enqueue(rnd.Next(1, 11));
+                        Console.WriteLine("Очередь \n");
+                    foreach (int h in q)
+                        Console.Write(h + " ");
+                    Console.WriteLine("\nОчередь из состовляющих меньших 10 \n");
+                    foreach (int x in q)
+                        if (x < 10)
+                        {
+                            Console.Write(x + " ");
+                        }
+                    break;
+                case 2:
+                    Console.WriteLine();
+                    var employees = new List<string> { "Егор Чечня", "Андрей Опасный", "Никита Крутой", "Ильназ Дотер", "Тагир Тигр" };
+                    Queue<string> people = new Queue<string>(employees);
+                    var oklad = new Queue<int>();
+                    int j = 0;
+                    int cred = 0;
+                    oklad.Enqueue(14000 );
+                    oklad.Enqueue(12000);
+                    oklad.Enqueue(140000);
+                    oklad.Enqueue(50);
+                    oklad.Enqueue(140000000);
+                    int p = oklad.Count;
+                    foreach (var person in people)
+                    {
+                        Console.WriteLine(person);
+                        foreach (var per in oklad)
+                        {
+                            Console.WriteLine(per);
+                            cred += per;
+                            j  += 1;
+                            if (j > 0 )
+                            {
+                                break;
+                            }
+                        }
+                        oklad.Dequeue();
+                        oklad.TrimExcess();
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Илназ Дотер новый сотрудник у него есть (Желание учиться чему-то новому. " +
+                        "Только такой соискатель считается перспективным и именно на его резюме рекрутёр обратит " +
+                        "внимание в первую очередь. Ведь сотрудник, постоянно совершенствующий свои навыки, " +
+                        "готов расти вместе с компанией.)\n");
+                    Console.WriteLine("Средний оклад среди сотрудников: \n" + cred / p);
 
+                    break;
+                case 3:
+                    var num = new Queue<string>();
+                    int g = 0;
+                    num.Enqueue("one");
+                    num.Enqueue("two");
+                    num.Enqueue("three");
+                    num.Enqueue("four");
+                    foreach (string i in num)
+                    {
+                        Console.WriteLine(i);
+                        g += i.Length;
+                    }
+                    num.Enqueue("five");
+                    Console.WriteLine("\n");
+                    foreach (string i in num)
+                        Console.WriteLine(i);
+                    num.Dequeue();
+                    Console.WriteLine("Суммарная длина всех строк: " + g);
+                    break;
+            }
+
+        Console.ReadKey();
