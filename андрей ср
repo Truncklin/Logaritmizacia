@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int snow = 0;
+            int rain = 0;
+            int clear = 0;
+            int days = 30;
+            int[] deg = new int[days];
+            int[] osad = new int[days];
+            int[] pog = new int[days];
+            double deg_sr = 0;
+            double osad_sr = 0;
+            double rain_sr = 0;
+            double snow_sr = 0;
+            Random rand = new Random();
+            for (int i = 0; i < days; i++)
+            {
+                deg[i] = rand.Next(-15,21);
+                osad[i] = rand.Next(0, 21);
+                pog[i] = rand.Next(0, 2);
+                deg_sr += deg[i];
+                osad_sr += osad[i];
+                if (pog[i] == 0)
+                {
+                    osad[i] = 0;
+                }
+                if (deg[i] > 0 && pog[i] != 0)
+                {
+                    rain_sr += osad[i];
+                    rain++;
+                }
+                else if(deg[i] < 0 && pog[i] != 0)
+                {
+                    snow++;
+                    snow_sr += osad[i];
+                }
+                if (pog[i] == 0|| osad[i]==0)
+                {
+                    Console.WriteLine("Температура воздуха в " + (i+1) + " День: " + deg[i] + "°C " + " Без осадков ");
+                    clear++;
+                }
+                else
+                {
+                    Console.WriteLine("Температура воздуха в " + (i+1) + " День: " + deg[i] + "°C " + " Кол-во осадков: " + osad[i] + " мм рт. ст. ");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Кол-во дождливых дней: " + rain+ " / среднее кол-во осадков в виде дождя за эти дни: "+ Math.Round(rain_sr / rain, 1) + " мм рт. ст.");
+            Console.WriteLine("Кол-во снежных дней: " + snow + " / среднее кол-во осадков в виде снега за эти дни: " + Math.Round(snow_sr / snow, 1) + " мм рт. ст.");
+            Console.WriteLine("Кол-во дней без осадков: " + clear);
+            Console.WriteLine("Средняя температура в этом месяце: " + Math.Round(deg_sr / 30, 1) + "°C ");
+            Console.WriteLine("Среднее кол-во осадков в этом месяце: " + Math.Round(osad_sr / 30, 1) + " мм рт. ст.");
+        }
+    }
+}
+
