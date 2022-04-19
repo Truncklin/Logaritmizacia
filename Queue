@@ -78,3 +78,60 @@ Console.WriteLine("Введите номер задания");
             }
 
         Console.ReadKey();
+
+
+
+//////////////////////////////////////////
+using System;
+using System.Collections.Generic;
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int j = 0;
+            var cpu = new Queue<string>();
+            cpu.Enqueue("cpu1");
+            cpu.Enqueue("cpu2");
+            cpu.Enqueue("cpu3");
+
+            var cpu_freq = new Queue<int>();
+            cpu_freq.Enqueue(2660);
+            cpu_freq.Enqueue(3400);
+            cpu_freq.Enqueue(3600);
+
+            var cpu_nucl = new Queue<int>();
+            cpu_nucl.Enqueue(3);
+            cpu_nucl.Enqueue(1);
+            cpu_nucl.Enqueue(4);
+            foreach (var c in cpu)
+            {
+                j = 0;
+                Console.WriteLine(c);
+                foreach (var cf in cpu_freq)
+                {
+                    if (j > 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine(cf);
+                    cpu_freq.Dequeue();
+                    cpu_freq.TrimExcess();
+                    foreach (var cn in cpu_nucl)
+                    {                      
+                            Console.WriteLine(cn);
+                        j += 1;
+                        if (j > 0)
+                        {
+                            break;
+                        }
+                        cpu_nucl.Dequeue();
+                        cpu_nucl.TrimExcess();
+                    }
+                }
+            }
+        }
+    }
+}
+
