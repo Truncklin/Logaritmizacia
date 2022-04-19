@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Введите номер задания");
+            int egor = Convert.ToInt32(Console.ReadLine());
+            switch (egor)
+            {
+                case 1:
+                    /*имеется информация о колво осадках, выпавшик за каждый день в месяце и о температуре воздуха в эти дни, 
+определить какое кол-во осадков выпало в виде снега, а какое в виде дождя, считается что дождь идёт если темп больше 0
+2) определить среднемесячное значение осадков и температуры
+3) определить лни кога небыло осадков */
+                    int[] osadki = new int[30];
+                    Queue<int> q = new Queue<int>();
+                    Random rnd = new Random();
+                    int p = 0;
+                    int J = 0;
+                    int l = 0;
+                    int y = 0;
+                    int[] temp = new int[30];
+                    string[] day = new string[30];
+                    foreach (string i in day)
+                    {
+                        J = 0;
+                        p++;
+                        Console.Write( p + " день:  ");
+                        foreach (int j in osadki)
+                        {
+                            if (J > 0)
+                            {
+                                break;
+                            }
+                            osadki[j] = rnd.Next(0, 20);
+                            l += osadki[j];
+                            if (osadki[j] == 0)
+                            {
+                                J++;
+                                Console.WriteLine("осадков в этот день не было");
+                                q.Enqueue(p);
+                                if (J > 0)
+                                {
+                                    break;
+                                }
+                            }
+
+                            else
+                            {
+                                Console.Write("количество осадков: " + osadki[j] + "  ");
+                                for (int g = 0; g <= 1; g++)
+                                {
+
+                                    int v = rnd.Next(-15, 15);
+                                    temp[g] = v;
+                                    y += temp[g];
+                                    if (temp[g] < 0)
+                                    {
+                                        Console.WriteLine("шел снег, при температуре: " + temp[g]);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("шел дождь, при температуре: " + temp[g]);
+                                    }
+                                    J ++;
+                                    if (J > 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Console.WriteLine("среднее ежемесячное количество осадков: " + l / 30);
+                    Console.WriteLine("средняя ежемесячная температура: " + y / 30);
+                    Console.Write("дни или день в которых не было осадков: " );
+                    foreach(int i in q)
+                    {
+                        Console.Write(i+" ");
+                    }
+                    break;
+            }
+
+        Console.ReadKey();
+        }
+    }
+}
