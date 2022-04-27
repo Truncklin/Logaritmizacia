@@ -1,0 +1,14 @@
+static string newMettod (int a,int b)
+        {
+            if (a > b)
+                return Convert.ToString(a);
+            else
+                return Convert.ToString(b);
+        }
+        static void Main(string[] args)
+        {
+            int a = Convert.ToInt32(newMettod(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())));
+            int b = Convert.ToInt32(newMettod(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())));
+            Console.WriteLine(newMettod(a,b));
+            Console.ReadKey();
+        }
