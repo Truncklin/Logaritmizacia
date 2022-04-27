@@ -12,3 +12,87 @@ static string newMettod (int a,int b)
             Console.WriteLine(newMettod(a,b));
             Console.ReadKey();
         }
+.
+.
+.
+.
+ //Даны координаты вершин N треугольников(двумерной массив). Определить площадь какого треугольника по номеру наименьшее в качестве вспомогательного алгоритма использовать вычисление площади треугольника одного
+        static string newMettod (double a, double ay, double b, double by, double c, double cy)
+        {
+            double s = ((b - a) * (cy - ay) - (c - a) * (by - ay));
+            if (s < 0)
+            {
+                s = (s * -1);
+            }
+            double S = s/2;
+            return S.ToString();
+        }
+        static string srvnenie(double a, double b)
+        {
+            if (a > b)
+                return Convert.ToString(a);
+            else
+                return Convert.ToString(b);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Напишите количество треуголников которые надо сравнить");
+            int y = Int32.Parse(Console.ReadLine());
+            double a = 0;
+            double ay = 0;
+            double b = 0;
+            double by = 0;
+            double c = 0;
+            double cy = 0;
+            double max = 0;
+            double min = 0;
+            for (int i = 0; i < y; i++)
+            {
+                Console.WriteLine("Напишите координаты "+ (i+1)+" треугольника ");
+                for (int j = 0; j < 3; j++)
+                {
+                    string r = Console.ReadLine();
+                    string[] mass = r.Split(' ', ',', '.');
+                    if (mass.Length < 2 || mass.Length > 2)
+                    {
+                        Console.WriteLine("координаты вершин треугольников не могут быть меньше или больше 2");
+                    }
+                    else
+                    {
+                        for (int k = 0; k < mass.Length; k++)
+                        {
+                            if (j == 0)
+                            {
+                                a = double.Parse(mass[0]);
+                                ay = double.Parse(mass[1]);
+                            }
+                            else if (j == 1)
+                            {
+                                b = double.Parse(mass[0]);
+                                by = double.Parse(mass[1]);
+                            }
+                            else if (j == 2)
+                            {
+                                c = double.Parse(mass[0]);
+                                cy = double.Parse(mass[1]);
+                            }
+
+                        }
+                    }
+                }
+                if (i == 0)
+                {
+                    max = double.Parse(newMettod(a, ay, b, by, c, cy));
+                }
+                else if (i == 1)
+                {
+                    min = double.Parse(newMettod(a, ay, b, by, c, cy));
+                }
+                else if (i == (y-1))
+                {
+                    max = double.Parse(srvnenie(max, min));
+                    Console.WriteLine(srvnenie(max, double.Parse(newMettod(a, ay, b, by, c, cy))));
+                }
+            }
+            Console.ReadKey();
+        }
