@@ -58,3 +58,48 @@ namespace ConsoleApp8
         }
     }
 }
+static int newMettod(int[] mass)
+        {
+            int count = 0;
+            var List = new List<int>();
+            int[] mass2 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            for (int i = 0; i < mass.Length; i++)
+            {
+                for (int j = 0; j < mass2.Length;j++)
+                {
+                    if (mass[i] == mass2[j])
+                    {
+                        Console.WriteLine(mass2[j]);
+                        List.Add(mass2[j]);
+                    }
+                }
+            }
+            for (int j = 0; j < List.Count;j++)
+            {
+                for (int i = 0; i < List.Count; i++)
+                {
+                    if (List[j] == List[i])
+                    {
+                        if (j == i)
+                        {
+                        }
+                        else
+                        {
+                            count++;
+                            break;
+                        }
+                    }
+                }
+
+
+            }
+            int Otvet = List.Count - (count-1);
+            return Otvet;
+        }
+        static void Main(string[] args)
+        {
+            string num = Console.ReadLine();
+            char[] Array = num.ToCharArray();
+            Console.WriteLine(newMettod(Int32.Parse(Array)));
+            Console.ReadKey();
+        }
