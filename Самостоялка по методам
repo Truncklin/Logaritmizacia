@@ -1,3 +1,60 @@
 создать вспомогательный алгоритм вычисляющий площадь круга по его радиусу с приминением этого алгоритма найти площадь кольца если известны радусы внуренней и внешней окружности
 создать вспомогательный алгоритм вычисляющий площадь квадрата по его диаганали с помошью этого метода найти площадь фигуры если известны внутреннего и внешенего квадрата
 создать вспомогательный определяющий количеств оразличных цифр записи числа с применением этого алгоритма в каком из двух заданный чисел больше разнообразия цифр(в ответе вывести это число)
+using System;
+using System.Collections.Generic;
+namespace ConsoleApp8
+{
+    public class SamplesStack
+    {
+        class Program
+        {
+
+            /* static void Main(string[] args)
+             {
+                 Console.WriteLine("Введите радиус большего круга: ");
+                 double R = double.Parse(Console.ReadLine());
+                 Console.WriteLine("Введите радиус меньшего круга: ");
+                 double r = double.Parse(Console.ReadLine());
+                 double S1 = m(R);
+                 double S2 = m(r);
+                 double SR = S1 - S2;
+                 Console.WriteLine("Площадь первого круга равна: " +S1);
+                 Console.WriteLine("Площадь второго круга равна: " + S2);
+                 Console.WriteLine("Площадь кольца равна: " + SR);
+                 Console.ReadLine();
+             }
+             public static double m(double R)
+             {
+                 double s = 0;
+                 s = Math.PI * R * R;
+                 return s;
+
+             }*/
+
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Введите диагональ большего квадрата: ");
+                double D = double.Parse(Console.ReadLine());
+                Console.WriteLine("Введите диагональ меньшего квадрата: ");
+                double d = double.Parse(Console.ReadLine());
+                double S1 = m(D);
+                double S2 = m(d);
+                double SD = S1 - S2;
+                Console.WriteLine("Площадь первого квадрата равна: " + S1);
+                Console.WriteLine("Площадь второго квадрата равна: " + S2);
+                Console.WriteLine("Площадь фигуры равна: " + SD);
+                Console.ReadLine();
+            }
+            public static double m(double D)
+            {
+                double s = 0;
+                s = (D * D)/2;
+                return s;
+
+            }
+
+
+        }
+    }
+}
