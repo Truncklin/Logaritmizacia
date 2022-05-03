@@ -26,3 +26,20 @@ public static String recursion(int a, int b)
         {
             Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()))); // вызов рекурсивной функции
             Console.ReadKey();
+            
+/////////////////////////////////////////            
+ static void Main(string[] args)
+        {
+            Console.WriteLine("Введите число");
+            int N=Int32.Parse( Console.ReadLine());
+            Reverse(N);
+        }
+        static void Reverse(int number)
+        {
+            int newNum = number % 10;
+            Console.Write(newNum+ " ");
+            number /= 10;
+
+            if (number > 0)
+                Reverse(number);
+        }
