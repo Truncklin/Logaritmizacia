@@ -82,3 +82,33 @@ public static int recursion(int a)
             if (number > 0)
                 Reverse(number);
         }
+        public static String recursion(string input)
+        {
+            //helloh holleh
+            string h;
+            
+            char[] inputarray = input.ToCharArray();
+            Array.Reverse(inputarray);
+            string output = new string(inputarray);
+            int count = string.Compare(input, output);
+            if (count == 0)
+            {
+                h = "YES";
+                if (input.Length == 1 || input.Length == 2 && count == 0) return h;
+                string k = input.Substring(1);
+                int ind = k.Length - 1;
+                k = k.Remove(ind);
+                return recursion(k);
+            }
+            else
+                h = "No";
+                return h;
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(recursion(Console.ReadLine()));
+            
+            Console.ReadKey();
+
+        }
