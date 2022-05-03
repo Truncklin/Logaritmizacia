@@ -43,3 +43,18 @@ public static String recursion(int a, int b)
             if (number > 0)
                 Reverse(number);
         }
+        /////////////////////////////////////
+public static int recursion(int a)
+        {
+            //2234
+            if ((a / 10) == 0)
+            {
+                return a;
+            }
+            return a % 10 + recursion(a / 10);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine())));
+            Console.ReadKey();
+        }
