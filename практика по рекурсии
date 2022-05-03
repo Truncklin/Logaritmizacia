@@ -26,8 +26,47 @@ public static String recursion(int a, int b)
         {
             Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()))); // вызов рекурсивной функции
             Console.ReadKey();
-            
-/////////////////////////////////////////            
+            2////////////////////////
+            public static String recursion(int a, int b)
+        {
+            int one = 1;
+            string TEXT = "ЧИСЛО НЕ ВХОДИТ В НУЖНЫЙ ДИАПАЗОН";
+            if (a == 0)
+            {
+                return Convert.ToString(a + "," + b + 1);
+            }
+            else if (a > 0 && b == 0)
+            {
+                return Convert.ToString(a - 1 + "," + one);
+            }
+            else if (a > 0 && b > 0)
+            {
+                return Convert.ToString(a - 1 + ",A(" + a + "," + (b - 1) + ")");
+            }
+            else
+                return TEXT;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine())));
+            Console.ReadKey();
+        }
+       3 /////////////////////////////////////
+public static int recursion(int a)
+        {
+            //2234
+            if ((a / 10) == 0)
+            {
+                return a;
+            }
+            return a % 10 + recursion(a / 10);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine())));
+            Console.ReadKey();
+        }
+4/////////////////////////////////////////            
  static void Main(string[] args)
         {
             Console.WriteLine("Введите число");
@@ -42,19 +81,4 @@ public static String recursion(int a, int b)
 
             if (number > 0)
                 Reverse(number);
-        }
-        /////////////////////////////////////
-public static int recursion(int a)
-        {
-            //2234
-            if ((a / 10) == 0)
-            {
-                return a;
-            }
-            return a % 10 + recursion(a / 10);
-        }
-        static void Main(string[] args)
-        {
-            Console.WriteLine(recursion(Convert.ToInt32(Console.ReadLine())));
-            Console.ReadKey();
         }
