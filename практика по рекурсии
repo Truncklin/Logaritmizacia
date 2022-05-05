@@ -1,24 +1,19 @@
 public static String recursion(int a, int b)
         {
-            // основное условие задачи
             if (a > b)
             {
-                // Базовый случай
                 if (a == b)
                 {
                     return Convert.ToString(a);
                 }
-                // Шаг рекурсии / рекурсивное условие
                 return a + " " + recursion(a - 1, b);
             }
             else
             {
-                // Базовый случай
                 if (a == b)
                 {
                     return Convert.ToString(a);
                 }
-                // Шаг рекурсии / рекурсивное условие
                 return a + " " + recursion(a + 1, b);
             }
         }
