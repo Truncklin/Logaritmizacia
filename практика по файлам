@@ -1,0 +1,37 @@
+ static void Main(string[] args)
+        {
+            string path = "C:\\Cat\\text.txt";
+            StreamWriter sw = new StreamWriter("C:\\Cat\\text.txt");
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    sw.Write(Convert.ToString(i + ","));
+                }
+                sw.Write(50);
+                sw.Close();
+            }
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            {
+                Console.WriteLine("Название каталога: {0}", dirInfo.Name);
+                Console.WriteLine("Полное название каталога: {0}", dirInfo.FullName);
+                Console.WriteLine("Время создания каталога: {0}", dirInfo.CreationTime);
+                Console.WriteLine("Корневой каталог: {0}", dirInfo.Root);
+            }
+            DirectoryInfo dirInfo2 = new DirectoryInfo("C:\\Dog\\str.txt");
+            {
+                Console.WriteLine("Название каталога: {0}", dirInfo2.Name);
+                Console.WriteLine("Полное название каталога: {0}", dirInfo2.FullName);
+                Console.WriteLine("Время создания каталога: {0}", dirInfo2.CreationTime);
+                Console.WriteLine("Корневой каталог: {0}", dirInfo2.Root);
+            }
+            StreamWriter sw2 = new StreamWriter("C:\\Dog\\str.txt");
+            {
+                string[] mass = new string[] { "red", "green", "black", "white", "blue" };
+                for (int i = 0; i < mass.Length; i ++)
+                {
+                    sw2.WriteLine(mass[i]);
+                }
+                sw2.Close();
+            }
+            Console.ReadKey();
+        }
