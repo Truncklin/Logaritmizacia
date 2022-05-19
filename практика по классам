@@ -33,3 +33,39 @@ namespace ConsoleApp1
     }
 }
 ........................................................................................................................................................................
+class Program
+    {
+
+            public static void Main()
+            {
+                Console.WriteLine("Введите кол-во автомобилей: ");
+                int x = Int32.Parse(Console.ReadLine());
+                for (int i = 0; i < x; i++)
+                {
+                    Car t = new Car();
+                    Console.WriteLine("Введите марку автомобиля № "+ (i+1)+ ":");
+                    t.Marc = Console.ReadLine();
+                    Console.WriteLine("Введите цвет автомобиля № " + (i+1) + ":");
+                    t.Color = Console.ReadLine();
+                    Console.WriteLine("Введите цену автомобиля № " + (i+1) + ":");
+                    t.Price = Int32.Parse(Console.ReadLine());
+                t.Sum(Convert.ToInt32(t.Price * 0.05));
+                t.Pokaz();
+                    Console.WriteLine();
+                }
+            }
+    }
+    class Car
+    {
+        public string Marc { get; set; }
+        public string Color { get; set; }
+        public int Price { get; set; }
+        public void Pokaz()
+        {
+            Console.WriteLine("Данные машины: Марка:{0}, Цвет:{1}, Цена с учётом скидки:{2}", Marc, Color, Price);
+        }
+        public void Sum(int sale)
+        {
+            this.Price -= sale;
+        }
+    }
