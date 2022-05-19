@@ -108,6 +108,38 @@ namespace ConsoleApp1
     }
 }
 ..............................................................................................................................................................
+class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine(get(0, 1, 1e-6));
+            Console.ReadKey();
+        }
+        static double f(double x)
+        {
+            return x * x * x + 0.4 * x - 1.2;
+        }
+
+        static double get(double a, double b, double eps)
+        {
+            double x;
+            while (b - a > eps)
+            {
+                x = (a + b) / 2;
+                if (f(x) * f(a) > 0)
+                {
+                    a = x;
+                }
+                else
+                {
+                    b = x;
+                }
+            }
+            return (a + b) / 2;
+        }
+    }
+..............................................................................................................................................................
  class Program
     {
 
