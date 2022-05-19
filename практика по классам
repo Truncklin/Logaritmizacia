@@ -1,0 +1,35 @@
+using System;
+
+namespace ConsoleApp1
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите радиус конуса");
+            Formuls formuls = new Formuls();
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите высоту конуса");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(Formuls.mid(a));
+            Console.WriteLine(Formuls.bok(a, b));
+            Console.WriteLine(Formuls.mid(a) + Formuls.bok(a, b));
+            Console.ReadKey();
+        }
+    }
+
+    class Formuls
+    {
+        public static double mid(double radius)
+        {
+            return (3.14159265 * radius * radius);
+        }
+        public static double bok(double radius, double hight)
+        {
+            double k = Math.Sqrt(radius * radius + hight * hight);
+            return 3.14159265 * radius * k;
+        }
+    }
+}
+........................................................................................................................................................................
