@@ -107,3 +107,76 @@ namespace ConsoleApp1
         }
     }
 }
+..............................................................................................................................................................
+ class Program
+    {
+
+            public static void Main()
+            {
+                int m3 = 0;
+                int m4 = 0;
+                int m5 = 0;
+            Console.WriteLine("Введите кол-во студентов: ");
+                int x = Int32.Parse(Console.ReadLine());
+                for (int i = 0; i < x; i++)
+                {
+                    Student t = new Student();
+                    Console.WriteLine("Введите фамилию "+ (i+1)+ " студента");
+                    t.Surname = Console.ReadLine();
+                    Console.WriteLine("Введите № зачётки " + (i+1) + " студента");
+                    t.Zachetka = Int32.Parse(Console.ReadLine()); ;
+                    Console.WriteLine("Введите оценки " + (i+1) + " студента (через пробел)");
+                    t.Marks =(Console.ReadLine());
+                    string[] subs = t.Marks.Split(' ');
+                for (int j = 0; j < 4; j++)
+                {
+                    if (Convert.ToInt32(subs[j]) == 3)
+                    {
+                        ++m3;
+                    }
+                    if (Convert.ToInt32(subs[j]) == 4)
+                    {
+                        ++m4;
+                    }
+                    if (Convert.ToInt32(subs[j]) == 5)
+                    {
+                        ++m5;
+                    }
+                }
+                if (m3 >= 1)
+                {
+                    t.Stepend = "стипендия отсутствует";
+                }
+                if (m3 == 0)
+                {
+                    t.Stepend = "обычная стипендия";
+                    if (m4 == m5)
+                    {
+                        t.Stepend = "полуповышенная";
+                    }
+                }
+                if (m5==4)
+                {
+                    t.Stepend = "повышенная";
+                }
+
+                t.Pokaz();
+                    Console.WriteLine();
+                }
+            }
+           
+        }
+
+    }
+    class Student
+    {
+        public string Surname { get; set; }
+        public int Zachetka { get; set; }
+        public string Marks { get; set; }
+        public string Stepend { get; set; }
+        public void Pokaz()
+        {
+            Console.WriteLine("Данные студента: Фамилия:{0}, номер зачётной книжки:{1}, баллы по четырём экзаменам:{2}, степендия:{3}", Surname, Zachetka, Marks, Stepend);
+        }
+        
+    }
