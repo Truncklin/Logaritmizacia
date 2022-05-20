@@ -38,6 +38,10 @@ namespace ConsoleApp1
         }
         public static string actionCat(string count)
         {
+        if (count == "прогнать" || count == "Прогнать")
+                count = Problems("fdkjg");
+            else if (count == "оставить" || count == "Оставить")
+                count = "Вы решили его оставить и в скором времени вы умерли от удушья\nСпасибо за игру";
             return count;
         }
         public static string Name { get; set; }
