@@ -23,7 +23,15 @@ namespace ConsoleApp1
     }
     class Cat
     {
-
+        public static string Hospital(string count)
+        {
+            string replic5 = "Вашего кота увели на операцию, вы сидите и волнуетесь за своего кота";
+            if (count == "Поехать в больницу с вашим котом" || count == "2")
+                count = replic5;
+            else
+                count = "Ваш кот лежит и плачет. В скором времени ваш кот умирает.";
+            return count;
+        }
         public static string Problems (string count)
         {
             Random rnd = new Random();
