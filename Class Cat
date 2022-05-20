@@ -1,0 +1,51 @@
+using System;
+
+namespace ConsoleApp1
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            try
+            {
+
+                Console.WriteLine(Cat.Problems("fdsf"));
+                Console.ReadKey();
+            }
+            catch
+            {
+                Console.WriteLine("Вы сделали что-то не то");
+            }
+        }
+
+    }
+    class Cat
+    {
+
+        public static string Problems (string count)
+        {
+            Random rnd = new Random();
+            int g = 0;
+            g = rnd.Next(0, 2);
+            if (g == 1)
+                count = "О нет!!! ВАШ КОТ СЛОМАЛ НОГУ"+"\nВаш кот кричит от боли";
+            else
+                count = "Кот удачно приземлился";
+
+            return count;
+        }
+        public static string actionCat(string count)
+        {
+            return count;
+        }
+        public static string Name { get; set; }
+        public static string Poroda { get; set; }
+        public static string Color { get; set; }
+        public static string Pol { get; set; }
+        public static string Kastr { get; set; }
+        public static string Privit { get; set; }
+        public static string Age{ get; set; }
+    }
+}
