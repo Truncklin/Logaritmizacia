@@ -1,8 +1,7 @@
 using System;
 
-namespace ConsoleApp1
+namespace _1
 {
-
     class Program
     {
 
@@ -10,54 +9,152 @@ namespace ConsoleApp1
         {
             try
             {
+                Console.WriteLine("Введите кличку: ");
+                Cat.Name = Console.ReadLine();
+                string h = Cat.Name;
+                Console.WriteLine("Введите породу: ");
+                Cat.Poroda = Console.ReadLine();
+                Console.WriteLine("Введите цвет: ");
+                Cat.Color = Console.ReadLine();
+                Console.WriteLine("Введите пол: ");
+                Cat.Pol = Console.ReadLine();
+                Console.WriteLine("Введите кастрирован он или нет в форме (да/нет): ");
+                Cat.Kastr = Console.ReadLine();
+                Console.WriteLine("Введите привит он или нет в форме (да/нет): ");
+                Cat.Privit = Console.ReadLine();
+                Console.WriteLine("Введите возраст: ");
+                Cat.Age = Console.ReadLine();
+                Console.WriteLine("6:15- Вы просыпаетесь от того что вам тяжело дышать, вы чувствуете как что-то теплое и тяжелое лежит на вашем лице. Это ваш кот {0}", Cat.Name);
+                Console.WriteLine("Ваши действия: прогнать/оставить");
+                string choise1 = (Cat.actionCat(Console.ReadLine()));
+                Console.WriteLine(choise1);
+                if (choise1 == "О нет!!!Из за того что вы оттолкунули кота, он неправильно приземлился и СЛОМАЛ ЛАПУ" + "\nВаш кот ерзает на полу кричит от боли")
+                {
+                    Console.WriteLine("Ваши действия: Ничего не делать, сама пройдёт/Поехать в больницу с вашим котом {0}ом", Cat.Name);
+                    string choise2 = (Cat.Hospital(Console.ReadLine()));
+                    Console.WriteLine(choise2);
+                    if (choise2 == "Вашего кота увезли на операцию, вы сидите и волнуетесь за своего кота")
+                    {
+                        Console.WriteLine("Доктор выходит из кабинета и просит паспорт домашнего животного");
+                        Console.WriteLine("Соврать что у вас нет паспорта {0}а/протянуть паспорт (соврать/протянуть)", Cat.Name);
+                        string choise3 = (Cat.Hospital2(Console.ReadLine()));
+                        Console.WriteLine(choise3);
+                    }
+                }
+                else if (choise1 == "Коту повезло и он ничего не сломал, и зачем вы с ним так грубо, ему очень повезло, больше так не делайте")
+                {
+                    Console.WriteLine("Вы быстро проснулись от этого инцидента. Увидела своего кота {0}", Cat.Name + "\n МЯУ МЯЯУУ)");
+                    Console.WriteLine("Вы поняли что {0} хочет есть", Cat.Name);
+                    Console.WriteLine("Вы наложили ему корм и ушли смотреть телевизор\nпрошло два часа и вы думаете почему же так тихо и нигде не видно {0}", Cat.Name);
+                    Console.WriteLine("Вы пошли на кухню и видите такую картину:\n");
+                    string hig = Cat.Problems("rey");
+                    Console.WriteLine(hig);
+                    if (hig == "Вы увидели что ваш кот не стал есть корм а решил полакомиться мусором из мусорки.Что вы сделаете (Прогнать/Пусть ест все равно выкидывать) ")
+                    {
+                        Cat.actionCat(Console.ReadLine());
+                    }
 
-                Console.WriteLine(Cat.Problems("fdsf"));
+                }
+                Console.WriteLine("\n\t\t\t\t\tИгра окончена. Спасибо за игру!");
+
                 Console.ReadKey();
             }
             catch
-            {
-                Console.WriteLine("Вы сделали что-то не то");
-            }
-        }
+            { Console.WriteLine("Вы сделали что то не так попробуйте заново"); }
 
+        }
     }
     class Cat
     {
-        public static string Hospital(string count)
-        {
-            string replic5 = "Вашего кота увели на операцию, вы сидите и волнуетесь за своего кота";
-            if (count == "Поехать в больницу с вашим котом" || count == "2")
-                count = replic5;
-            else
-                count = "Ваш кот лежит и плачет. В скором времени ваш кот умирает.";
-            return count;
-        }
-        public static string Problems (string count)
-        {
-            Random rnd = new Random();
-            int g = 0;
-            g = rnd.Next(0, 2);
-            if (g == 1)
-                count = "О нет!!! ВАШ КОТ СЛОМАЛ НОГУ"+"\nВаш кот кричит от боли";
-            else
-                count = "Кот удачно приземлился";
-
-            return count;
-        }
-        public static string actionCat(string count)
-        {
-        if (count == "прогнать" || count == "Прогнать")
-                count = Problems("fdkjg");
-            else if (count == "оставить" || count == "Оставить")
-                count = "Вы решили его оставить и в скором времени вы умерли от удушья\nСпасибо за игру";
-            return count;
-        }
         public static string Name { get; set; }
         public static string Poroda { get; set; }
         public static string Color { get; set; }
         public static string Pol { get; set; }
         public static string Kastr { get; set; }
         public static string Privit { get; set; }
-        public static string Age{ get; set; }
+        public static string Age { get; set; }
+        public static string actionCat2(string count)
+
+        {
+            if (count == "прогнать" || count == "Прогнать" || count == "1" || count == "Прогнать и наругать")
+            {
+                count = "Коту не понравилось у вас и он написал прощальную записку:\nМЯУ МЯУ МЯЯУМЯУ МЯУМЯ МЯУМяУМЯУЯУММ\nМЯУМ ЯМУМЯУММЯУМЯМУМУМЯМУМ" +
+                    "\nВы четко поняли что ваш кот ушел из дома из за того что вы не разрешаете ему лежать у себя на лице и часто ругаете" +
+                    "\n ВЫ ПРОШЛИ ИГРУ!!! ЖДИТЕ ВТОРУЮ ЧАСТЬ (В ПОИСКАХ КОТА)";
+            }
+            else if (count == "оставить" || count == "Оставить" || count == "2")
+            {
+                count = "вы оставили кота есть мусор и у него начались проблемы с желудком.Ваши действия: Ничего не делать, само пройдёт/Поехать в больницу с вашим котом";
+                Hospital(count);
+            }
+            return count;
+        }
+        public static string actionCat(string count)
+
+        {
+            if (count == "прогнать" || count == "Прогнать" || count == "1")
+            {
+                count = Problems("fdkjg");
+            }
+            else if (count == "оставить" || count == "Оставить" || count == "2")
+                count = "Вы решили его оставить и в скором времени вы умерли от удушья";
+            return count;
+        }
+        public static string Problems(string count)
+        {
+            Random rnd = new Random();
+            int g = 0;
+            g = rnd.Next(0, 2);
+            if (count == "fdkjg")
+            {
+                if (g == 1)
+                    count = "О нет!!!Из за того что вы оттолкунули кота, он неправильно приземлился и СЛОМАЛ ЛАПУ" + "\nВаш кот ерзает на полу кричит от боли";
+                else if (g == 0)
+                    count = "Коту повезло и он ничего не сломал, и зачем вы с ним так грубо, ему очень повезло, больше так не делайте";
+            }
+            else if (count == "rey")
+            {
+                if (g == 1)
+                {
+                    count = "Коту не понравилось у вас и он написал прощальную записку:\nМЯУ МЯУ МЯЯУМЯУ МЯУМЯ МЯУМяУМЯУЯУММ\nМЯУМ ЯМУМЯУММЯУМЯМУМУМЯМУМ" +
+                        "\nВы четко поняли что ваш кот ушел из дома из за того что вы не разрешаете ему лежать у себя на лице" +
+                        "\n ВЫ ПРОШЛИ ИГРУ!!! ЖДИТЕ ВТОРУЮ ЧАСТЬ (В ПОИСКАХ КОТА)";
+
+                }
+                else if (g == 0)
+                    count = "Вы увидели что ваш кот не стал есть корм а решил полакомиться мусором из мусорки.Что вы сделаете (Прогнать/Пусть ест все равно выкидывать) ";
+            }
+
+            return count;
+        }
+        public static string Hospital(string count)
+        {
+            string replic5 = "Вашего кота увезли на операцию, вы сидите и волнуетесь за своего кота";
+            if (count == "Поехать в больницу с вашим котом" || count == "2")
+                count = replic5;
+            else
+                count = "Ваш кот лежит и плачет. В скором времени ваш кот умирает.";
+            return count;
+        }
+        public static string Hospital2(string count)
+        {
+            if (count == "Протянуть" || count == "протянуть" || count == "2")
+            {
+                count = ("Паспорт\n Данные животного: \n порода: " + Poroda + "\n кличка: " + Name + " \n цвет: " + Color + " \n пол: " + Pol + "\n кастрация: " + Kastr + " \n прививка: " + Privit + " \n возраст:" + Age + "\n\nДоктор сказал вам ждать примерно два часа" + HappyEnd("sdf"));
+
+            }
+            else if (count == "cjdhfnm" || count == "соврать" || count == "1")
+            {
+                count = "Вам отказали в обслуживании и ваш любимый кот умер.Вы вышли на улицу закурили, долго плакали. С мыслями наверное лучше было задохнуться.";
+            }
+            return count;
+        }
+        public static string HappyEnd(string count)
+        {
+            count = "Вскоре вашего кота выписали из больницы и он счастливый пришел домой,\n с надеждой что вы исправитесь и больше не будете его обижать";
+            return count;
+        }
+
+
     }
 }
