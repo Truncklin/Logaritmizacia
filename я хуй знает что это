@@ -1,0 +1,53 @@
+using System;
+
+namespace ConsoleApp10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Введите сегодняшнюю дату: ");
+            Console.WriteLine("День: ");
+            int day = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Месяц: ");
+            int mounth = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Год: ");
+            int year = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Начните вводить продукты: ");
+            Spisok.Pokaz();
+            Console.WriteLine("Хотите продолжить?: ");
+            string choise = Console.ReadLine();
+                while (choise == "да")
+                {
+                    Spisok.Pokaz();
+                    Console.WriteLine("Хотите продолжить?: ");
+                    choise = Console.ReadLine();
+                    string bdsh= "Продукт: " + Products.product + ", Фирма: " + Products.firm + ", Срок годности: " + Products.srok + ", Количество: " + Products.amount;
+
+                }
+        }
+        class Spisok
+        {
+            public static void Pokaz()
+            {
+                Console.WriteLine("Продукт: ");
+                Products.product = Console.ReadLine();
+                Console.WriteLine("Фирма: ");
+                Products.firm = Console.ReadLine();
+                Console.WriteLine("Срок годности: ");
+                Products.srok = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Количество: ");
+                Products.amount = Console.ReadLine();
+            }
+        }
+
+        class Products
+        {
+            public static string product { get; set; }
+            public static string firm { get; set; }
+            public static int srok { get; set; }
+            public static string amount { get; set; }
+        }
+    }
+}
