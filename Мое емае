@@ -8,10 +8,19 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            string[,] mass = new string[10,5];
+            int l = 0;
+            string[,] mass = new string[10, 5];
             for (int i = 0; i < 100; i++)
             {
-                for (int j = 0; j < 100; j++)
+                if (i > 0)
+                {
+                    l++;
+                    Console.WriteLine("Закрыть? \t (да/нет)");
+                    String condition = Console.ReadLine();
+                    if (condition == "да" || condition == "1")
+                        break;
+                }
+                for (int j = 0; j < 1; j++)
                 {
                     Console.WriteLine("Введите фамилию сотрудника");
                     string name = Console.ReadLine();
@@ -28,24 +37,30 @@ namespace ConsoleApp1
                     Console.WriteLine("Введите количество отработанных часов в выходные");
                     string exitWorkTime = Console.ReadLine();
                     mass[i, 4] = exitWorkTime;
-                    Premia.Table(mass);
-                    Console.WriteLine("Закрыть? \t (да/нет)");
-                    String condition = Console.ReadLine();
-
-                    if (condition == "да" || condition == "1")
-                        break;
                 }
             }
-            
+            Premia.Table(mass,l);
             Console.ReadKey();
         }
 
     }
     class Premia
     {
-        public static string Table(string[,] mass)
+        public static string Table(string[,] mass, int l)
         {
-            Console.WriteLine("Фамилия сотрудника \t Табельный номер \t Оклад \t Количество отроботанных часов в будни \t Количество отроботанных часов в выходные \t Премия \t Итог");
+            Console.WriteLine("Фамилия сотрудника \tТабельный номер      Оклад\tКол. часов в будни\tКол.часов в выходные\tПремия\tИтог");
+            for (int i = 0; i < l; i++)
+            {
+                for (int j = 0; j < 5;j++)
+                {
+                    if(j == 0)
+                        Console.Write(mass[i, j]+ " сотрудни  ");
+                    else
+                        Console.Write("\t" + mass[i, j]);
+                }
+                Console.WriteLine();
+            }
+            string a = " ";
             return a;
         }
     }
