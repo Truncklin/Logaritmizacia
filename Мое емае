@@ -1,0 +1,52 @@
+using System;
+
+namespace ConsoleApp1
+{
+    //
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            string[,] mass = new string[10,5];
+            for (int i = 0; i < 100; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    Console.WriteLine("Введите фамилию сотрудника");
+                    string name = Console.ReadLine();
+                    mass[i, 0] = name;
+                    Console.WriteLine("Введите табельный номер");
+                    string number = Console.ReadLine();
+                    mass[i, 1] = number;
+                    Console.WriteLine("Введите оклад");
+                    string oklad = Console.ReadLine();
+                    mass[i, 2] = oklad;
+                    Console.WriteLine("Введите количество отработанных часов в будни");
+                    string workTime = Console.ReadLine();
+                    mass[i, 3] = workTime;
+                    Console.WriteLine("Введите количество отработанных часов в выходные");
+                    string exitWorkTime = Console.ReadLine();
+                    mass[i, 4] = exitWorkTime;
+                    Premia.Table(mass);
+                    Console.WriteLine("Закрыть? \t (да/нет)");
+                    String condition = Console.ReadLine();
+
+                    if (condition == "да" || condition == "1")
+                        break;
+                }
+            }
+            
+            Console.ReadKey();
+        }
+
+    }
+    class Premia
+    {
+        public static string Table(string[,] mass)
+        {
+            Console.WriteLine("Фамилия сотрудника \t Табельный номер \t Оклад \t Количество отроботанных часов в будни \t Количество отроботанных часов в выходные \t Премия \t Итог");
+            return a;
+        }
+    }
+}
