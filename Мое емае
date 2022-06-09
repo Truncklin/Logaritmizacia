@@ -10,7 +10,7 @@ namespace ConsoleApp1
         {
             Double prem = 0;
             int l = 0;
-            string[,] mass = new string[10, 5];
+            string[,] mass = new string[10, 7];
             for (int i = 0; i < 100; i++)
             {
                 if (i > 0)
@@ -38,20 +38,20 @@ namespace ConsoleApp1
                     Console.WriteLine("Введите количество отработанных часов в выходные");
                     string exitWorkTime = Console.ReadLine();
                     mass[i, 4] = exitWorkTime;
-                        if (Convert.ToInt32(mass[i, 4]) > 12)
-                        { prem = Convert.ToDouble(mass[i, 2]) * 0.7;}
-                        else if (Convert.ToInt32(mass[i, 4]) > 0 && Convert.ToInt32(mass[i, 4]) < 12)
-                        { prem = Convert.ToDouble(mass[i, 2]) * 0.4;}
-                        else if (Convert.ToInt32(mass[i, 3]) > 40)
-                        { prem = Convert.ToDouble(mass[i, 2]) * 0.3;}
-                        else if (Convert.ToInt32(mass[i, 3]) == 40)
-                        { prem = Convert.ToDouble(mass[i, 2]) * 0.15;}
-                        else
-                            mass[i,5] = "Премия не начисляется";
+                    if (Convert.ToInt32(mass[i, 4]) > 12)
+                    { prem = Convert.ToDouble(mass[i, 2]) * 0.7; }
+                    else if (Convert.ToInt32(mass[i, 4]) > 0 && Convert.ToInt32(mass[i, 4]) <= 12)
+                    { prem = Convert.ToDouble(mass[i, 2]) * 0.4; }
+                    else if (Convert.ToInt32(mass[i, 3]) > 40)
+                    { prem = Convert.ToDouble(mass[i, 2]) * 0.3; }
+                    else if (Convert.ToInt32(mass[i, 3]) == 40)
+                    { prem = Convert.ToDouble(mass[i, 2]) * 0.15; }
+                    else
+                        mass[i, 5] = "Премия не начисляется";
                     mass[i, 5] = Convert.ToString(prem);
                 }
             }
-            Premia.Table(mass,l);
+            Premia.Table(mass, l);
             Console.ReadKey();
         }
 
@@ -63,12 +63,12 @@ namespace ConsoleApp1
             Console.WriteLine("Фамилия сотрудника \tТабельный номер      Оклад\tКол. часов в будни\tКол.часов в выходные\tПремия\t     Итог");
             for (int i = 0; i < l; i++)
             {
-                for (int j = 0; j < 6;j++)
+                for (int j = 0; j < 6; j++)
                 {
-                    if(j == 0)
-                        Console.Write(mass[i, j]+ "           ");
+                    if (j == 0)
+                        Console.Write(mass[i, j] + "           ");
                     else
-                        Console.Write("\t" + mass[i, j]+"             ");
+                        Console.Write("\t" + mass[i, j] + "             ");
                 }
                 Console.WriteLine();
             }
