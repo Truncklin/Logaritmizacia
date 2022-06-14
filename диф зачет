@@ -1,0 +1,77 @@
+using System;
+
+namespace ConsoleApp1
+{
+    //имеется 8 одинаковых с виду монетодна из монет фальшивая, ktuxt lheub[ cvjltkbhjdfnm ghjwtcc gjbcrf afkmibdjq vjytns pf ldf dpdtibdfybz на обычных чартоочных весах
+    class Program
+    {
+
+        static void Main(string[] args)  
+        {
+            /*bilet16.first(1);*/
+            /* bilet16.second("4");*/
+            bilet15.second("4");
+            Console.ReadKey();
+        }
+
+    }
+    class bilet16
+    {
+        public static void first(int a)
+        {
+            Console.WriteLine("Введите номер телефона");
+            string number = Console.ReadLine();
+            Console.WriteLine("Введите сумму оплаты");
+            int sum = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("По номеру телефона {0} произведен платеж на сумму {1}", number, sum);
+        }
+        public static void second (string l)
+        {
+            Console.WriteLine("Введите n");
+            int n = Int32.Parse(Console.ReadLine());
+            int[,] mass = new int[4,n];
+            for(int i = 0; i < 4; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    for (int j = 1; j < (n+1); j++)
+                    {
+                        Console.Write("\t"+j );
+                    }
+                }
+                else
+                {
+                    for (int g = n; g > 0; g--)
+                    {
+                        Console.Write("\t"+g );
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+    class bilet15
+    {
+        public static void first(int a)
+        {
+            Console.WriteLine("Введите номер телефона");
+            string number = Console.ReadLine();
+            Console.WriteLine("Введите сумму оплаты");
+            int sum = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("По номеру телефона {0} произведен платеж на сумму {1}", number, sum);
+        }
+        public static void second(string l)
+        {
+            Console.WriteLine("напишите текст");
+            string text = Console.ReadLine();
+            string[] mass = text.Split(')', '(');
+            for(int i = 0 ;i < (mass.Length) ;i++)
+            {
+                if (i%2 == 0)
+                {
+                    Console.Write(mass[i]+" ");
+                }
+            }
+        }
+    }
+}
